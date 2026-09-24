@@ -13,6 +13,7 @@ import UserProfile from "./components/UserProfile.jsx";
 import { Toaster } from "react-hot-toast"; //Abb isse humme include karna hain toasts ko
 import "bootstrap/dist/css/bootstrap.min.css";
 import PrivacyPolicy from "./components/PrivacyPolicy.jsx";
+import TermsOfServices from "./components/TermsOfServices.jsx";
 const router = createBrowserRouter([
   { path: "/login", element: <Login /> },
   {
