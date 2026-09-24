@@ -16,7 +16,7 @@ const allowedOrigins = Array.from(
   ].filter(Boolean))
 );
 
-app.use(cors({
+const corsOptions = {
   origin: (requestOrigin, callback) => {
     if (!requestOrigin) {
       return callback(null, true);
@@ -29,7 +29,12 @@ app.use(cors({
     return callback(new Error("Origin not allowed by CORS"));
   },
   credentials: true,
-}));
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+};
+
+app.use(cors(corsOptions));
+app.options(/^(.*)$/, cors(corsOptions));
 app.use(cookieParser()); // REQUIRED to read req.cookies
 app.use(express.json());//It will help for parsing the data from the http request to json
 app.use("/api/auth", AuthRouter);
