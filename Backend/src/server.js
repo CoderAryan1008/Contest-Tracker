@@ -1,6 +1,14 @@
 const path = require("path");
 require("dotenv").config({ path: path.join(__dirname, "../.env") }); //for using the .env file
 
+const normalizeEnv = (value) => (typeof value === "string" ? value.trim() : value);
+Object.keys(process.env).forEach((key) => {
+  const value = normalizeEnv(process.env[key]);
+  if (value !== undefined) {
+    process.env[key] = value;
+  }
+});
+
 const requiredEnv = [
   "Mongo_URL",
   "CLIENT_URL",

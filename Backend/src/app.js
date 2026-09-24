@@ -11,8 +11,8 @@ const contestFetchRouter = require('./routes/fetchContest.js');
 const allowedOrigins = Array.from(
   new Set([
     "http://localhost:5173",
-    process.env.CLIENT_URL,
-    process.env.FRONTEND_URL,
+    process.env.CLIENT_URL?.trim(),
+    process.env.FRONTEND_URL?.trim(),
   ].filter(Boolean))
 );
 
