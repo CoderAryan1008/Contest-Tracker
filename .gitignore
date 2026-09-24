@@ -1,0 +1,8 @@
+# Dependencies
+node_modules
+
+# Secret Keys
+.env
+
+# Build Files
+dist/
