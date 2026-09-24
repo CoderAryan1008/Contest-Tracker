@@ -66,7 +66,13 @@ const policySections = [
   {
     number: "06",
     title: "Your Rights",
-    content: <p>You can request deletion of your data by contacting us.</p>,
+    content: (
+      <p>
+        You can request deletion of your data by contacting us at
+        anonyuser1008@gmail.com. Upon request, we will delete your account and
+        associated data within a reasonable timeframe
+      </p>
+    ),
   },
   {
     number: "07",
@@ -93,7 +99,7 @@ function PrivacyPolicy() {
       <main className="privacy-main" aria-labelledby="privacy-title">
         <button
           className="privacy-back-button"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate("/", { replace: true })}
           type="button"
         >
           <ArrowLeft size={16} aria-hidden="true" />

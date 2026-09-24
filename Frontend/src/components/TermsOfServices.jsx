@@ -62,7 +62,7 @@ const termsSections = [
   {
     number: "08",
     title: "Contact",
-    content: <p>For any questions, contact us at: [your email]</p>,
+    content: <p>For any questions, contact us at: [anonyuser1008@gmail.com]</p>,
   },
 ];
 
@@ -74,7 +74,7 @@ function TermsOfServices() {
       <main className="privacy-main" aria-labelledby="terms-title">
         <button
           className="privacy-back-button"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate("/", { replace: true })}
           type="button"
         >
           <ArrowLeft size={16} aria-hidden="true" />
