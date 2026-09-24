@@ -11,8 +11,13 @@ const googleLogin = (req, res) => {
   res.redirect(url);
 };
 
+const isHttpsFrontend = (process.env.CLIENT_URL || "").startsWith("https://");
+
 const authCookieOptions = {
   httpOnly: true,
+  sameSite: isHttpsFrontend ? "none" : "lax",
+  secure: isHttpsFrontend,
+  path: "/",
   maxAge: 24 * 60 * 60 * 1000, //Yaani cookie ki life maxm 1 day ki hogi
 };
 

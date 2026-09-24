@@ -7,18 +7,27 @@ import {
   createReminder as createReminderApi,
   deleteReminder as deleteReminderApi,
 } from "./services/contest.api";
+import { useAuth } from "@/features/authentication/hooks/useAuth";
 
 export const ContestProvider = ({ children }) => {
+  const { user } = useAuth();
   const [contests, setContests] = useState([]);
   const [reminders, setReminders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const loadData = useCallback(async () => {
+    if (!user) {
+      setContests([]);
+      setReminders([]);
+      setLoading(false);
+      setError(null);
+      return;
+    }
+
     setLoading(true);
     setError(null);
     try {
-      // run both in parallel — no reason to wait for one before starting the other
       const [contestList, reminderList] = await Promise.all([
         getUpcomingContests(),
         getMyReminders(),
@@ -31,7 +40,7 @@ export const ContestProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     const initialLoad = window.setTimeout(() => {
