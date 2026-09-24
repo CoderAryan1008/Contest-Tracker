@@ -74,7 +74,7 @@ function TermsOfServices() {
       <main className="privacy-main" aria-labelledby="terms-title">
         <button
           className="privacy-back-button"
-          onClick={() => navigate("/login", { replace: true })}
+          onClick={() => navigate("/", { replace: true })} //Automatically agar login nahi hoga toh redirect ho jayega login page pe
           type="button"
         >
           <ArrowLeft size={16} aria-hidden="true" />
