@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = (import.meta.env.VITE_API_URL || "http://localhost:3000").replace(/\/$/, "");
+const BASE_URL = (import.meta.env.VITE_API_URL || "https://contest-tracker-jmf8.onrender.com").replace(/\/$/, "");
 
 const api = axios.create({
   baseURL: `${BASE_URL}/api/auth`,
