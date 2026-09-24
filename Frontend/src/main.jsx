@@ -12,6 +12,7 @@ import { ThemeProvider } from "./features/themes/theme.provider.jsx";
 import UserProfile from "./components/UserProfile.jsx";
 import { Toaster } from "react-hot-toast"; //Abb isse humme include karna hain toasts ko
 import "bootstrap/dist/css/bootstrap.min.css";
+import PrivacyPolicy from "./components/PrivacyPolicy.jsx";
 const router = createBrowserRouter([
   { path: "/login", element: <Login /> },
   {
@@ -29,6 +30,14 @@ const router = createBrowserRouter([
         <UserProfile />
       </Protected>
     ),
+  },
+  {
+    path: "/privacy-policy",
+    elemtent: <PrivacyPolicy />,
+  },
+  {
+    path: "/terms-of-service",
+    element: <TermsOfServices />,
   },
 ]);
 

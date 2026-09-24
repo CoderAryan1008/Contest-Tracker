@@ -450,6 +450,218 @@ button {
   min-height: 100vh;
 }
 
+.privacy-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at 14% 0%, rgba(42, 106, 185, 0.18), transparent 34%),
+    var(--app-bg);
+}
+
+.privacy-main {
+  position: relative;
+  width: min(100%, 920px);
+  margin: 0 auto;
+  padding: 92px 24px 72px;
+}
+
+.privacy-back-button {
+  position: absolute;
+  top: 32px;
+  left: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--app-border);
+  border-radius: 8px;
+  padding: 9px 12px;
+  color: var(--app-muted);
+  background: color-mix(in srgb, var(--app-panel) 88%, transparent);
+  font-size: .8125rem;
+  transition: .2s ease;
+}
+
+.privacy-back-button:hover {
+  border-color: color-mix(in srgb, var(--app-cyan) 50%, var(--app-border));
+  color: var(--app-cyan);
+  background: var(--app-cyan-soft);
+}
+
+.privacy-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--app-border);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--app-panel) 94%, transparent);
+  box-shadow: 0 22px 60px var(--app-shadow);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: rise-in .5s ease both;
+}
+
+.privacy-panel-accent {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--app-cyan), transparent);
+  box-shadow: 0 0 16px var(--app-cyan);
+}
+
+.privacy-header {
+  padding: 42px 48px 35px;
+  border-bottom: 1px solid var(--app-border);
+}
+
+.privacy-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--app-cyan);
+  font-size: .6875rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.privacy-header h1 {
+  margin: 14px 0 9px;
+  color: var(--app-text);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 750;
+  line-height: 1.1;
+  letter-spacing: -.04em;
+}
+
+.privacy-intro {
+  max-width: 620px;
+  margin: 0;
+  color: var(--app-muted);
+  font-size: .9375rem;
+  line-height: 1.7;
+}
+
+.privacy-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-top: 24px;
+  color: var(--app-muted);
+  font-size: .75rem;
+}
+
+.privacy-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.privacy-meta svg {
+  color: var(--app-cyan);
+}
+
+.privacy-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--app-border);
+}
+
+.privacy-section {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 13px;
+  min-width: 0;
+  padding: 27px 29px 29px;
+  background: color-mix(in srgb, var(--app-panel-raised) 78%, transparent);
+}
+
+.privacy-section-number {
+  color: var(--app-cyan);
+  font-size: .6875rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.privacy-section h2 {
+  margin: 0 0 9px;
+  color: var(--app-text);
+  font-size: .9375rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.privacy-section-copy {
+  color: var(--app-muted);
+  font-size: .8125rem;
+  line-height: 1.7;
+}
+
+.privacy-section-copy p {
+  margin: 0;
+}
+
+.privacy-section-copy p+p,
+.privacy-section-copy ul+p {
+  margin-top: 10px;
+}
+
+.privacy-section-copy ul {
+  display: grid;
+  gap: 5px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.privacy-section-copy li {
+  position: relative;
+  padding-left: 16px;
+}
+
+.privacy-section-copy li::before {
+  position: absolute;
+  top: .72em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--app-cyan);
+  box-shadow: 0 0 8px var(--app-cyan);
+  content: "";
+}
+
+.privacy-footer {
+  padding: 22px 48px 26px;
+  border-top: 1px solid var(--app-border);
+  color: var(--app-text);
+  font-size: .75rem;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .privacy-main {
+    padding: 82px 16px 50px;
+  }
+
+  .privacy-back-button {
+    left: 16px;
+  }
+
+  .privacy-header {
+    padding: 32px 24px 28px;
+  }
+
+  .privacy-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .privacy-section {
+    padding: 23px 24px 25px;
+  }
+
+  .privacy-footer {
+    padding: 20px 24px 23px;
+  }
+}
+
 .profile-main {
   display: flex;
   flex: 1;
