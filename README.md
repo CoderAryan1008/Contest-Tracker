@@ -41,7 +41,7 @@ Frontend: Vercel
 Backend: Render
 🔧 Installation & Setup
 1. Clone the repository
-git clone https://github.com/your-username/contest-tracker.git
+git clone https://github.com/CoderAryan1008/Contest-Tracker.git
 cd contest-tracker
 2. Setup Backend
 cd backend
