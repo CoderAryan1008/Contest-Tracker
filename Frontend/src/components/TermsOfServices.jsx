@@ -74,7 +74,7 @@ function TermsOfServices() {
       <main className="privacy-main" aria-labelledby="terms-title">
         <button
           className="privacy-back-button"
-          onClick={() => navigate("/", { replace: true })}
+          onClick={() => navigate("/login", { replace: true })}
           type="button"
         >
           <ArrowLeft size={16} aria-hidden="true" />

@@ -99,7 +99,7 @@ function PrivacyPolicy() {
       <main className="privacy-main" aria-labelledby="privacy-title">
         <button
           className="privacy-back-button"
-          onClick={() => navigate("/", { replace: true })}
+          onClick={() => navigate("/login", { replace: true })}
           type="button"
         >
           <ArrowLeft size={16} aria-hidden="true" />
