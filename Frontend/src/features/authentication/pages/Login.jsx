@@ -1,6 +1,7 @@
 import { useAuth } from "../hooks/useAuth";
 import GlitchVault from "@/components/ui/glitchvault";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 function Login() {
   const { login } = useAuth();
@@ -26,6 +27,17 @@ function Login() {
           <p className="mx-auto mt-4 max-w-sm text-sm leading-6 text-slate-300">
             Sign in to keep your coding contests and reminders in one place.
           </p>
+          <div className="mt-6 rounded-xl border border-cyan-300/10 bg-cyan-300/5 p-4 text-left">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200">
+              What Google sign-in enables
+            </p>
+            <p className="mt-2 text-xs leading-5 text-slate-400">
+              We use your name, email, and profile picture to create your
+              account. With your permission, Contest Reminder can create and
+              update contest events in Google Calendar. We never see your Google
+              password.
+            </p>
+          </div>
           <Button
             type="button"
             onClick={handleClick}
@@ -34,7 +46,28 @@ function Login() {
             Continue with Google
           </Button>
           <p className="mt-4 text-xs text-slate-500">
-            Secure authentication powered by Google
+            Secure authentication powered by Google. You can revoke access from
+            your Google Account at any time.
+          </p>
+          <div className="mt-6 flex items-center justify-center gap-4 border-t border-white/10 pt-5 text-xs text-slate-400">
+            <Link
+              to="/privacy-policy"
+              className="transition-colors hover:text-cyan-200 hover:underline"
+            >
+              Privacy Policy
+            </Link>
+            <span aria-hidden="true" className="text-slate-600">
+              |
+            </span>
+            <Link
+              to="/terms-of-service"
+              className="transition-colors hover:text-cyan-200 hover:underline"
+            >
+              Terms of Service
+            </Link>
+          </div>
+          <p className="mt-3 text-[11px] leading-4 text-slate-600">
+            Questions about your data? Contact anonyuser1008@gmail.com.
           </p>
         </section>
       </main>
