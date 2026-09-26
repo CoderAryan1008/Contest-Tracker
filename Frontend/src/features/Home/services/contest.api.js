@@ -1,8 +1,9 @@
 import axios from "axios";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000"
-
-
+const API_BASE_URL = import.meta.env.DEV
+  ? (import.meta.env.VITE_API_URL || "http://localhost:3000")
+  : "";
+//Isse hum proxy kar rahe hain jisse backend ke saath frontend properly communicate karle
 const EMPTY_CONTEST_GROUPS = {
   codeforces: [],
   codechef: [],
