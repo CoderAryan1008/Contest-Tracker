@@ -69,7 +69,7 @@ Backend deployed on Render
 Make sure to:
 
 - Set the backend `CLIENT_URL` to the deployed Vercel origin (for example, `https://your-app.vercel.app`).
-- Set the backend `GOOGLE_REDIRECT_URI` to `https://your-app.vercel.app/api/auth/google/callback`.
+- The backend derives the Google callback URL as `CLIENT_URL/api/auth/google/callback`.
 - Add that exact callback URL to the Google OAuth client's authorized redirect URIs.
 - Keep the Vercel `/api/:path*` rewrite pointed at the Render backend. The frontend calls `/api` on its own origin so the auth cookie remains first-party; do not set `VITE_API_URL` to the Render hostname.
   ⚠️ Important Notes

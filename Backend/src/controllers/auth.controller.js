@@ -62,7 +62,7 @@ const googleCallback = async (req, res) => {
     const user = await userModel.findOneAndUpdate(
       { googleId: profile.id },
       updateData,
-      { upsert: true, returnDocument: 'after' }
+      { upsert: true, new: true }
     );
 
     // if this is a brand new user AND Google never sent a refresh token

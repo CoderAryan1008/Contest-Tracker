@@ -15,7 +15,6 @@ const requiredEnv = [
   "SECRET_KEY",
   "GOOGLE_CLIENT_ID",
   "GOOGLE_CLIENT_SECRET",
-  "GOOGLE_REDIRECT_URI",
   "SYNC_SECRET",
 ];
 //Check kar rahe hain ki properly saare variables load toh hua hain na to prevent from unknown crashes
