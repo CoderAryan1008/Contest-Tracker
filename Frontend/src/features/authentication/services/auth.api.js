@@ -1,15 +1,17 @@
 import axios from "axios";
 
-const BASE_URL = (import.meta.env.VITE_API_URL || "https://contest-tracker-jmf8.onrender.com").replace(/\/$/, "");
+const API_BASE_URL = import.meta.env.DEV
+  ? (import.meta.env.VITE_API_URL || "http://localhost:3000")
+  : "";
 
 const api = axios.create({
-  baseURL: `${BASE_URL}/api/auth`,
+  baseURL: `${API_BASE_URL}/api/auth`,
   withCredentials: true,
   timeout: 10000,
 });
 
 export function login() {
-  window.location.href = `${BASE_URL}/api/auth/google`;
+  window.location.href = `${API_BASE_URL}/api/auth/google`;
 }
 
 export async function logout() {

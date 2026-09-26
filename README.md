@@ -1,4 +1,5 @@
 # Contest-Tracker
+
 An application that helps the cp coder to help know and set a reminder for their upcoming coding contests across various platforms
 
 🚀 Contest Tracker
@@ -40,18 +41,19 @@ Deployment
 Frontend: Vercel
 Backend: Render
 🔧 Installation & Setup
+
 1. Clone the repository
-git clone https://github.com/CoderAryan1008/Contest-Tracker.git
-cd contest-tracker
+   git clone https://github.com/CoderAryan1008/Contest-Tracker.git
+   cd contest-tracker
 2. Setup Backend
-cd backend
-npm install
-npm start
+   cd backend
+   npm install
+   npm start
 3. Setup Frontend
-cd frontend
-npm install
-npm run dev
-🔐 Environment Variables
+   cd frontend
+   npm install
+   npm run dev
+   🔐 Environment Variables
 
 Create a .env file in the backend and add:
 
@@ -66,13 +68,14 @@ Backend deployed on Render
 
 Make sure to:
 
-Update API base URLs in frontend
-Configure Google OAuth redirect URIs correctly
-⚠️ Important Notes
-Ensure your Google OAuth app is set to Production mode before public use
-Add both local and deployed URLs in authorized redirect URIs
-Keep your environment variables secure
-📸 Screenshots
+- Set the backend `CLIENT_URL` to the deployed Vercel origin (for example, `https://your-app.vercel.app`).
+- Set the backend `GOOGLE_REDIRECT_URI` to `https://your-app.vercel.app/api/auth/google/callback`.
+- Add that exact callback URL to the Google OAuth client's authorized redirect URIs.
+- Keep the Vercel `/api/:path*` rewrite pointed at the Render backend. The frontend calls `/api` on its own origin so the auth cookie remains first-party; do not set `VITE_API_URL` to the Render hostname.
+  ⚠️ Important Notes
+  Add both local and deployed URLs in authorized redirect URIs
+  Keep your environment variables secure
+  📸 Screenshots
 
 Add your project screenshots here
 
