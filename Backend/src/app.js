@@ -39,6 +39,7 @@ app.use(cors(corsOptions));
 app.options(/^(.*)$/, cors(corsOptions));
 app.use(cookieParser()); // REQUIRED to read req.cookies
 app.use(express.json());//It will help for parsing the data from the http request to json
+app.get("/health", (_req, res) => res.status(200).json({ status: "ok" }));
 app.use("/api/auth", AuthRouter);
 app.use("/api/internal", Internalrouter);
 app.use('/api/codeforces', fetchUserRouter);

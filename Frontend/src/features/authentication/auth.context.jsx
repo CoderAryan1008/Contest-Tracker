@@ -5,6 +5,7 @@ import {
   getMe,
   login as loginApi,
   logout as logoutApi,
+  warmBackend,
 } from "./services/auth.api";
 
 export const AuthProvider = ({ children }) => {
@@ -13,6 +14,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     let isMounted = true;
+    void warmBackend();
     const loaderTimeout = window.setTimeout(() => {
       if (isMounted) {
         setUser(null);

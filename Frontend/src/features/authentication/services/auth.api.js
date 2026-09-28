@@ -1,18 +1,33 @@
 import axios from "axios";
-import { useEffect } from "react";
 const API_BASE_URL = import.meta.env.DEV
   ? (import.meta.env.VITE_API_URL || "http://localhost:3000")
   : "";
+const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/, "");
+let backendWarmup;
 const api = axios.create({
   baseURL: `${API_BASE_URL}/api/auth`,
   withCredentials: true,
   timeout: 10000,
 });
-useEffect(() => {
-  fetch(`${import.meta.env.VITE_BACKEND_URL}/health`).catch(() => { });
-}, []); //Isse hum sabse pahle backend server ko up karenge phir hi reverse proxy ka use karenge for the oauth
 
-export function login() {
+export function warmBackend() {
+  if (!BACKEND_URL) {
+    return Promise.resolve();
+  }
+
+  if (!backendWarmup) {
+    backendWarmup = fetch(`${BACKEND_URL}/health`, { mode: "no-cors" })
+      .then(() => undefined)
+      .catch(() => {
+        backendWarmup = undefined;
+      });
+  }
+
+  return backendWarmup;
+}
+
+export async function login() {
+  await warmBackend();
   window.location.href = `${API_BASE_URL}/api/auth/google`;
 }
 
