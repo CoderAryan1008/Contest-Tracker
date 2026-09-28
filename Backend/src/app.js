@@ -32,7 +32,9 @@ const corsOptions = {
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
 };
-
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});//Yeh humara health checkup endpoint hain jo pahle hit hoga
 app.use(cors(corsOptions));
 app.options(/^(.*)$/, cors(corsOptions));
 app.use(cookieParser()); // REQUIRED to read req.cookies

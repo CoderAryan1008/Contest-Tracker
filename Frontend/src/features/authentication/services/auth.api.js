@@ -8,6 +8,9 @@ const api = axios.create({
   withCredentials: true,
   timeout: 10000,
 });
+useEffect(() => {
+  fetch(`${import.meta.env.VITE_BACKEND_URL}/health`).catch(() => { });
+}, []); //Isse hum sabse pahle backend server ko up karenge phir hi reverse proxy ka use karenge for the oauth
 
 export function login() {
   window.location.href = `${API_BASE_URL}/api/auth/google`;
