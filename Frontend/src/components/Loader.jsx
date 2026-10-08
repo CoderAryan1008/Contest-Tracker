@@ -11,7 +11,7 @@ const css = `
 .orbit-spinner i:nth-child(1) { top: 0; left: 50%; translate: -50% 0; }
 .orbit-spinner i:nth-child(2) { bottom: 0; left: 0; opacity: .6; }
 .orbit-spinner i:nth-child(3) { bottom: 0; right: 0; opacity: .3; }
-@media (prefers-reduced-motion: reduce) { .orbit-spinner { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .orbit-spinner { animation-duration: 4s; } }
 `;
 
 const Loader = ({ size = 200, color = "#818cf8", label = "Loading" }) => {
